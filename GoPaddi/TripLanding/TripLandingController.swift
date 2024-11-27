@@ -7,13 +7,11 @@
 
 import UIKit
 
-class TripLandingController: BaseController<TripLandingView> {
+final class TripLandingController: BaseController<TripLandingView> {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        title = "GoPaddi"
     }
-
-
 }
 

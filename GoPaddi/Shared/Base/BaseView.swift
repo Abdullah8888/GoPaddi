@@ -5,7 +5,6 @@
 //  Created by Abdullah on 26/11/2024.
 //
 
-import Foundation
 import UIKit
 
 class BaseView: UIView {

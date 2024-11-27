@@ -12,6 +12,11 @@
 		B82800072CF62870007B34E0 /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82800062CF62870007B34E0 /* BaseController.swift */; };
 		B828000A2CF62900007B34E0 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82800092CF62900007B34E0 /* BaseView.swift */; };
 		B828000D2CF62930007B34E0 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B828000C2CF62930007B34E0 /* Constant.swift */; };
+		B828000F2CF69B03007B34E0 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B828000E2CF69B03007B34E0 /* UIView+Layout.swift */; };
+		B82800122CF69DAC007B34E0 /* TripHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82800112CF69DAC007B34E0 /* TripHeaderView.swift */; };
+		B82800152CF6A693007B34E0 /* PlannedTripCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82800142CF6A693007B34E0 /* PlannedTripCell.swift */; };
+		B82800182CF6BD0E007B34E0 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82800172CF6BD0E007B34E0 /* Label.swift */; };
+		B828001A2CF6BF5E007B34E0 /* UIEdgeInsets+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82800192CF6BF5E007B34E0 /* UIEdgeInsets+Extension.swift */; };
 		B828FFC42CF61A89007B34E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B828FFC32CF61A89007B34E0 /* AppDelegate.swift */; };
 		B828FFC62CF61A89007B34E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B828FFC52CF61A89007B34E0 /* SceneDelegate.swift */; };
 		B828FFC82CF61A89007B34E0 /* TripLandingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B828FFC72CF61A89007B34E0 /* TripLandingController.swift */; };
@@ -46,6 +51,11 @@
 		B82800062CF62870007B34E0 /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		B82800092CF62900007B34E0 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		B828000C2CF62930007B34E0 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		B828000E2CF69B03007B34E0 /* UIView+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
+		B82800112CF69DAC007B34E0 /* TripHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripHeaderView.swift; sourceTree = "<group>"; };
+		B82800142CF6A693007B34E0 /* PlannedTripCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannedTripCell.swift; sourceTree = "<group>"; };
+		B82800172CF6BD0E007B34E0 /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
+		B82800192CF6BF5E007B34E0 /* UIEdgeInsets+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Extension.swift"; sourceTree = "<group>"; };
 		B828FFC02CF61A89007B34E0 /* GoPaddi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoPaddi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B828FFC32CF61A89007B34E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B828FFC52CF61A89007B34E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				B82800032CF627AE007B34E0 /* TripLandingView.swift */,
+				B82800112CF69DAC007B34E0 /* TripHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -97,6 +108,8 @@
 		B82800052CF62823007B34E0 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				B82800162CF6BCFF007B34E0 /* Components */,
+				B82800102CF69B34007B34E0 /* Extensions */,
 				B828000B2CF62920007B34E0 /* Constants */,
 				B82800082CF628C6007B34E0 /* Base */,
 			);
@@ -118,6 +131,31 @@
 				B828000C2CF62930007B34E0 /* Constant.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		B82800102CF69B34007B34E0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B828000E2CF69B03007B34E0 /* UIView+Layout.swift */,
+				B82800192CF6BF5E007B34E0 /* UIEdgeInsets+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B82800132CF6A64B007B34E0 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B82800142CF6A693007B34E0 /* PlannedTripCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		B82800162CF6BCFF007B34E0 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B82800172CF6BD0E007B34E0 /* Label.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		B828FFB72CF61A88007B34E0 = {
@@ -184,6 +222,7 @@
 		B828FFF92CF62517007B34E0 /* TripLanding */ = {
 			isa = PBXGroup;
 			children = (
+				B82800132CF6A64B007B34E0 /* Cells */,
 				B82800022CF627A0007B34E0 /* Views */,
 				B828FFC72CF61A89007B34E0 /* TripLandingController.swift */,
 			);
@@ -342,9 +381,14 @@
 				B828FFF52CF624D7007B34E0 /* CreateTripController.swift in Sources */,
 				B82800042CF627AE007B34E0 /* TripLandingView.swift in Sources */,
 				B828FFC82CF61A89007B34E0 /* TripLandingController.swift in Sources */,
+				B828001A2CF6BF5E007B34E0 /* UIEdgeInsets+Extension.swift in Sources */,
 				B828FFC42CF61A89007B34E0 /* AppDelegate.swift in Sources */,
 				B828000A2CF62900007B34E0 /* BaseView.swift in Sources */,
+				B82800182CF6BD0E007B34E0 /* Label.swift in Sources */,
+				B828000F2CF69B03007B34E0 /* UIView+Layout.swift in Sources */,
+				B82800152CF6A693007B34E0 /* PlannedTripCell.swift in Sources */,
 				B828000D2CF62930007B34E0 /* Constant.swift in Sources */,
+				B82800122CF69DAC007B34E0 /* TripHeaderView.swift in Sources */,
 				B82800012CF62777007B34E0 /* TripEntity.swift in Sources */,
 				B828FFC62CF61A89007B34E0 /* SceneDelegate.swift in Sources */,
 			);
