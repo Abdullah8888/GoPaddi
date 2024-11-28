@@ -29,8 +29,9 @@ final class Label: UILabel {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(padding: UIEdgeInsets = .zero) {
+    init(padding: UIEdgeInsets = .zero, font: UIFont = .satoshiRegular()) {
         super.init(frame: .zero)
         self.insets = padding
+        self.font = font
     }
 }

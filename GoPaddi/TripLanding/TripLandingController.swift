@@ -13,5 +13,10 @@ final class TripLandingController: BaseController<TripLandingView> {
         super.viewDidLoad()
         title = "GoPaddi"
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        _view.setTripHeaderView()
+    }
 }
 

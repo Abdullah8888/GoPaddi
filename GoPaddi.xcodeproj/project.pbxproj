@@ -17,6 +17,20 @@
 		B82800152CF6A693007B34E0 /* PlannedTripCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82800142CF6A693007B34E0 /* PlannedTripCell.swift */; };
 		B82800182CF6BD0E007B34E0 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82800172CF6BD0E007B34E0 /* Label.swift */; };
 		B828001A2CF6BF5E007B34E0 /* UIEdgeInsets+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82800192CF6BF5E007B34E0 /* UIEdgeInsets+Extension.swift */; };
+		B82800272CF7B61B007B34E0 /* Satoshi-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B828001D2CF7B61A007B34E0 /* Satoshi-BoldItalic.otf */; };
+		B82800282CF7B61B007B34E0 /* Satoshi-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B828001E2CF7B61A007B34E0 /* Satoshi-LightItalic.otf */; };
+		B82800292CF7B61B007B34E0 /* Satoshi-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = B828001F2CF7B61A007B34E0 /* Satoshi-Black.otf */; };
+		B828002A2CF7B61B007B34E0 /* Satoshi-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B82800202CF7B61A007B34E0 /* Satoshi-Bold.otf */; };
+		B828002B2CF7B61B007B34E0 /* Satoshi-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = B82800212CF7B61A007B34E0 /* Satoshi-Light.otf */; };
+		B828002C2CF7B61B007B34E0 /* Satoshi-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B82800222CF7B61A007B34E0 /* Satoshi-Italic.otf */; };
+		B828002D2CF7B61B007B34E0 /* Satoshi-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B82800232CF7B61A007B34E0 /* Satoshi-BlackItalic.otf */; };
+		B828002E2CF7B61B007B34E0 /* Satoshi-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B82800242CF7B61A007B34E0 /* Satoshi-MediumItalic.otf */; };
+		B828002F2CF7B61B007B34E0 /* Satoshi-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = B82800252CF7B61A007B34E0 /* Satoshi-Medium.otf */; };
+		B82800302CF7B61B007B34E0 /* Satoshi-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B82800262CF7B61B007B34E0 /* Satoshi-Regular.otf */; };
+		B82800322CF7B9CC007B34E0 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82800312CF7B9CC007B34E0 /* UIFont+Extension.swift */; };
+		B82800342CF7BE12007B34E0 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82800332CF7BE12007B34E0 /* UIColor+Extension.swift */; };
+		B82800362CF89D39007B34E0 /* CreateTripFloatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82800352CF89D39007B34E0 /* CreateTripFloatingView.swift */; };
+		B82800382CF8B16F007B34E0 /* StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82800372CF8B16F007B34E0 /* StackView.swift */; };
 		B828FFC42CF61A89007B34E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B828FFC32CF61A89007B34E0 /* AppDelegate.swift */; };
 		B828FFC62CF61A89007B34E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B828FFC52CF61A89007B34E0 /* SceneDelegate.swift */; };
 		B828FFC82CF61A89007B34E0 /* TripLandingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B828FFC72CF61A89007B34E0 /* TripLandingController.swift */; };
@@ -26,6 +40,9 @@
 		B828FFF52CF624D7007B34E0 /* CreateTripController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B828FFF42CF624D7007B34E0 /* CreateTripController.swift */; };
 		B828FFF82CF62510007B34E0 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B828FFF72CF62510007B34E0 /* NetworkService.swift */; };
 		B828FFFD2CF62690007B34E0 /* TripRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B828FFFC2CF62690007B34E0 /* TripRepository.swift */; };
+		B8DDE0CB2CF8DA2D00370AE4 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DDE0CA2CF8DA2D00370AE4 /* PreviewProvider.swift */; };
+		B8DDE0CD2CF8E40B00370AE4 /* DropdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DDE0CC2CF8E40B00370AE4 /* DropdownView.swift */; };
+		B8DDE0CF2CF8F2C400370AE4 /* NotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DDE0CE2CF8F2C400370AE4 /* NotificationNames.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +73,20 @@
 		B82800142CF6A693007B34E0 /* PlannedTripCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannedTripCell.swift; sourceTree = "<group>"; };
 		B82800172CF6BD0E007B34E0 /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		B82800192CF6BF5E007B34E0 /* UIEdgeInsets+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Extension.swift"; sourceTree = "<group>"; };
+		B828001D2CF7B61A007B34E0 /* Satoshi-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Satoshi-BoldItalic.otf"; sourceTree = "<group>"; };
+		B828001E2CF7B61A007B34E0 /* Satoshi-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Satoshi-LightItalic.otf"; sourceTree = "<group>"; };
+		B828001F2CF7B61A007B34E0 /* Satoshi-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Satoshi-Black.otf"; sourceTree = "<group>"; };
+		B82800202CF7B61A007B34E0 /* Satoshi-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Satoshi-Bold.otf"; sourceTree = "<group>"; };
+		B82800212CF7B61A007B34E0 /* Satoshi-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Satoshi-Light.otf"; sourceTree = "<group>"; };
+		B82800222CF7B61A007B34E0 /* Satoshi-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Satoshi-Italic.otf"; sourceTree = "<group>"; };
+		B82800232CF7B61A007B34E0 /* Satoshi-BlackItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Satoshi-BlackItalic.otf"; sourceTree = "<group>"; };
+		B82800242CF7B61A007B34E0 /* Satoshi-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Satoshi-MediumItalic.otf"; sourceTree = "<group>"; };
+		B82800252CF7B61A007B34E0 /* Satoshi-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Satoshi-Medium.otf"; sourceTree = "<group>"; };
+		B82800262CF7B61B007B34E0 /* Satoshi-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Satoshi-Regular.otf"; sourceTree = "<group>"; };
+		B82800312CF7B9CC007B34E0 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		B82800332CF7BE12007B34E0 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		B82800352CF89D39007B34E0 /* CreateTripFloatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTripFloatingView.swift; sourceTree = "<group>"; };
+		B82800372CF8B16F007B34E0 /* StackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackView.swift; sourceTree = "<group>"; };
 		B828FFC02CF61A89007B34E0 /* GoPaddi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoPaddi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B828FFC32CF61A89007B34E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B828FFC52CF61A89007B34E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +100,9 @@
 		B828FFF42CF624D7007B34E0 /* CreateTripController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTripController.swift; sourceTree = "<group>"; };
 		B828FFF72CF62510007B34E0 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		B828FFFC2CF62690007B34E0 /* TripRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripRepository.swift; sourceTree = "<group>"; };
+		B8DDE0CA2CF8DA2D00370AE4 /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
+		B8DDE0CC2CF8E40B00370AE4 /* DropdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownView.swift; sourceTree = "<group>"; };
+		B8DDE0CE2CF8F2C400370AE4 /* NotificationNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNames.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +133,10 @@
 		B82800022CF627A0007B34E0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B82800352CF89D39007B34E0 /* CreateTripFloatingView.swift */,
 				B82800032CF627AE007B34E0 /* TripLandingView.swift */,
 				B82800112CF69DAC007B34E0 /* TripHeaderView.swift */,
+				B8DDE0CC2CF8E40B00370AE4 /* DropdownView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -112,6 +148,7 @@
 				B82800102CF69B34007B34E0 /* Extensions */,
 				B828000B2CF62920007B34E0 /* Constants */,
 				B82800082CF628C6007B34E0 /* Base */,
+				B8DDE0CE2CF8F2C400370AE4 /* NotificationNames.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -121,6 +158,7 @@
 			children = (
 				B82800062CF62870007B34E0 /* BaseController.swift */,
 				B82800092CF62900007B34E0 /* BaseView.swift */,
+				B8DDE0CA2CF8DA2D00370AE4 /* PreviewProvider.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -138,6 +176,8 @@
 			children = (
 				B828000E2CF69B03007B34E0 /* UIView+Layout.swift */,
 				B82800192CF6BF5E007B34E0 /* UIEdgeInsets+Extension.swift */,
+				B82800312CF7B9CC007B34E0 /* UIFont+Extension.swift */,
+				B82800332CF7BE12007B34E0 /* UIColor+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -154,8 +194,34 @@
 			isa = PBXGroup;
 			children = (
 				B82800172CF6BD0E007B34E0 /* Label.swift */,
+				B82800372CF8B16F007B34E0 /* StackView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		B828001B2CF7B56E007B34E0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B828001C2CF7B5FB007B34E0 /* Satoshi */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B828001C2CF7B5FB007B34E0 /* Satoshi */ = {
+			isa = PBXGroup;
+			children = (
+				B828001F2CF7B61A007B34E0 /* Satoshi-Black.otf */,
+				B82800232CF7B61A007B34E0 /* Satoshi-BlackItalic.otf */,
+				B82800202CF7B61A007B34E0 /* Satoshi-Bold.otf */,
+				B828001D2CF7B61A007B34E0 /* Satoshi-BoldItalic.otf */,
+				B82800222CF7B61A007B34E0 /* Satoshi-Italic.otf */,
+				B82800212CF7B61A007B34E0 /* Satoshi-Light.otf */,
+				B828001E2CF7B61A007B34E0 /* Satoshi-LightItalic.otf */,
+				B82800252CF7B61A007B34E0 /* Satoshi-Medium.otf */,
+				B82800242CF7B61A007B34E0 /* Satoshi-MediumItalic.otf */,
+				B82800262CF7B61B007B34E0 /* Satoshi-Regular.otf */,
+			);
+			path = Satoshi;
 			sourceTree = "<group>";
 		};
 		B828FFB72CF61A88007B34E0 = {
@@ -180,6 +246,7 @@
 		B828FFC22CF61A89007B34E0 /* GoPaddi */ = {
 			isa = PBXGroup;
 			children = (
+				B828001B2CF7B56E007B34E0 /* Resources */,
 				B82800052CF62823007B34E0 /* Shared */,
 				B828FFF62CF624E5007B34E0 /* Infrastructure */,
 				B828FFFE2CF626C1007B34E0 /* Data */,
@@ -349,8 +416,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B828002B2CF7B61B007B34E0 /* Satoshi-Light.otf in Resources */,
+				B828002D2CF7B61B007B34E0 /* Satoshi-BlackItalic.otf in Resources */,
+				B828002E2CF7B61B007B34E0 /* Satoshi-MediumItalic.otf in Resources */,
+				B828002F2CF7B61B007B34E0 /* Satoshi-Medium.otf in Resources */,
+				B828002A2CF7B61B007B34E0 /* Satoshi-Bold.otf in Resources */,
+				B82800282CF7B61B007B34E0 /* Satoshi-LightItalic.otf in Resources */,
+				B82800292CF7B61B007B34E0 /* Satoshi-Black.otf in Resources */,
 				B828FFD02CF61A8E007B34E0 /* LaunchScreen.storyboard in Resources */,
+				B82800302CF7B61B007B34E0 /* Satoshi-Regular.otf in Resources */,
 				B828FFCD2CF61A8E007B34E0 /* Assets.xcassets in Resources */,
+				B82800272CF7B61B007B34E0 /* Satoshi-BoldItalic.otf in Resources */,
+				B828002C2CF7B61B007B34E0 /* Satoshi-Italic.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,19 +455,26 @@
 				B828FFF82CF62510007B34E0 /* NetworkService.swift in Sources */,
 				B82800072CF62870007B34E0 /* BaseController.swift in Sources */,
 				B828FFFD2CF62690007B34E0 /* TripRepository.swift in Sources */,
+				B82800342CF7BE12007B34E0 /* UIColor+Extension.swift in Sources */,
 				B828FFF52CF624D7007B34E0 /* CreateTripController.swift in Sources */,
+				B82800362CF89D39007B34E0 /* CreateTripFloatingView.swift in Sources */,
+				B8DDE0CF2CF8F2C400370AE4 /* NotificationNames.swift in Sources */,
 				B82800042CF627AE007B34E0 /* TripLandingView.swift in Sources */,
 				B828FFC82CF61A89007B34E0 /* TripLandingController.swift in Sources */,
 				B828001A2CF6BF5E007B34E0 /* UIEdgeInsets+Extension.swift in Sources */,
 				B828FFC42CF61A89007B34E0 /* AppDelegate.swift in Sources */,
 				B828000A2CF62900007B34E0 /* BaseView.swift in Sources */,
 				B82800182CF6BD0E007B34E0 /* Label.swift in Sources */,
+				B82800322CF7B9CC007B34E0 /* UIFont+Extension.swift in Sources */,
+				B8DDE0CB2CF8DA2D00370AE4 /* PreviewProvider.swift in Sources */,
 				B828000F2CF69B03007B34E0 /* UIView+Layout.swift in Sources */,
 				B82800152CF6A693007B34E0 /* PlannedTripCell.swift in Sources */,
 				B828000D2CF62930007B34E0 /* Constant.swift in Sources */,
+				B8DDE0CD2CF8E40B00370AE4 /* DropdownView.swift in Sources */,
 				B82800122CF69DAC007B34E0 /* TripHeaderView.swift in Sources */,
 				B82800012CF62777007B34E0 /* TripEntity.swift in Sources */,
 				B828FFC62CF61A89007B34E0 /* SceneDelegate.swift in Sources */,
+				B82800382CF8B16F007B34E0 /* StackView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

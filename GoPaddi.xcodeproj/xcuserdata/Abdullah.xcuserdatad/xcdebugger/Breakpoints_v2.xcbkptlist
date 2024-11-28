@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5473D874-8F90-43CA-8001-CEB4F8616506"
+            uuid = "602A92C9-48E8-4CB4-A03A-8CAC55780C23"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GoPaddi/TripLanding/Views/TripLandingView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "layoutSubviews()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -4,13 +4,13 @@
 //
 //  Created by Abdullah on 26/11/2024.
 //
-import Foundation
+
 import UIKit
 
 final class TripLandingView: BaseView {
     let plannedTripCell = String(describing: PlannedTripCell.self)
     lazy var tableView: UITableView = {
-        let tableView =  UITableView(frame: .zero, style: .grouped)
+        let tableView =  UITableView(frame: .zero)
         tableView.register(PlannedTripCell.self, forCellReuseIdentifier: plannedTripCell)
         tableView.showsVerticalScrollIndicator = false
         tableView.delegate = self
@@ -18,13 +18,22 @@ final class TripLandingView: BaseView {
         return tableView
     }()
     
+    var tripHeaderView: TripHeaderView?
+    
     override func setup() {
         super.setup()
-        backgroundColor = .clear
+        backgroundColor = .white
         addSubview(tableView)
         tableView.fillUpSuperview()
-
-        let tripHeaderView = TripHeaderView(frame: CGRect(x: 0, y: 0, width: Constant.screenWidth, height: Constant.screenHeight))
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        updateContentHeight()
+    }
+    
+    func setTripHeaderView() {
+        tripHeaderView = TripHeaderView(frame: CGRect(x: 0, y: 0, width: Constant.screenWidth, height: contentHeight!))
         tableView.tableHeaderView = tripHeaderView
         tableView.tableHeaderView?.layoutIfNeeded()
     }
@@ -49,5 +58,9 @@ extension TripLandingView: UITableViewDataSource {
 extension TripLandingView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         130
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        NotificationCenter.default.post(name: NSNotification.Name(NotificationNames.tableViewDidStartScrolling), object: tableView)
     }
 }

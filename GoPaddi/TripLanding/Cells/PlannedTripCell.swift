@@ -7,29 +7,30 @@
 
 import UIKit
 
-final class PlannedTripCell: UITableViewCell {
-    static let identifier = "CustomTableViewCell"
+final class PlannedTripCell: BaseTableViewCell {
     
-    private let headerLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Custom Cell"
-        label.font = UIFont.systemFont(ofSize: 20)
-        label.textColor = .black
-        label.translatesAutoresizingMaskIntoConstraints = false
+//    private let headerLabel: UILabel = {
+//        let label = UILabel()
+//        label.text = "Custom Cell"
+//        label.font = UIFont.systemFont(ofSize: 20)
+//        label.textColor = .black
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//        return label
+//    }()
+    
+    let headerLabel: Label = {
+        let label = Label(padding: .leftOnly(15), font: .satoshiBold(size: 20))
+        label.textColor = .hex1D2433
         return label
     }()
-
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.addSubviews(headerLabel)
-        headerLabel.fillUpSuperview()
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
+    
     func configure(with text: String) {
         headerLabel.text = text
+    }
+    
+    override func setup() {
+        super.setup()
+        contentView.addSubviews(headerLabel)
+        headerLabel.fillUpSuperview()
     }
 }
