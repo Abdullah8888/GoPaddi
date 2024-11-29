@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol TripHeaderViewDelegate: AnyObject {
+    func onItemSelected(item: String)
+}
+
 final class TripHeaderView: BaseView {
 
     let headerLabel: Label = {
@@ -24,7 +28,7 @@ final class TripHeaderView: BaseView {
     }()
     
     let subTextLabel: Label = {
-        let label = Label(padding: .leftOnly(20), font: .satoshiMedium())
+        let label = Label(padding: .sides(20, 20), font: .satoshiMedium())
         label.text = "Build, personalize, and optimize your itineraries with our trip planner. Perfect for getaways, remote workcations, and any spontaneous escapade."
         //label.font = UIFont.systemFont(ofSize: 14)
         label.numberOfLines = 0
@@ -35,7 +39,7 @@ final class TripHeaderView: BaseView {
         let img = UIImageView(image: UIImage(named: "bg_image_two"))
         img.contentMode = .scaleAspectFill
         img.backgroundColor = .yellow
-        img.isHidden = true
+        //img.isHidden = true
         return img
     }()
     
@@ -45,7 +49,7 @@ final class TripHeaderView: BaseView {
     }()
     
     let yourTripTitleLabel: Label = {
-        let label = Label(font: .satoshiBold(size: 16))
+        let label = Label(padding: .topOnly(20), font: .satoshiBold(size: 16))
         label.text = "Your Trips"
         label.textColor = .hex1D2433
         return label
@@ -58,6 +62,12 @@ final class TripHeaderView: BaseView {
         return label
     }()
     
+    private var dropdownView: DropdownView?
+    
+    private var emptyMessageLabel: Label?
+    
+    var delegate: TripHeaderViewDelegate?
+    
     override func setup() {
         super.setup()
         addSubviews(headerLabel, bgImage, titleLabel, subTextLabel, createTripFloatingView, yourTripTitleLabel, yourTripSubTitleLabel)
@@ -67,21 +77,22 @@ final class TripHeaderView: BaseView {
         subTextLabel.anchor(top: titleLabel.bottomAnchor, leading: leadingAnchor, trailing: trailingAnchor, margin: .topOnly(15))
         createTripFloatingView.anchor(top: subTextLabel.bottomAnchor, leading: leadingAnchor, trailing: trailingAnchor, margin: .init(top: 70, left: 50, bottom: 0, right: 50), size: .init(width: 0, height: 220))
        
-        yourTripTitleLabel.anchor(top: createTripFloatingView.bottomAnchor, leading: leadingAnchor, margin: .topLeftOnly(30, 13))
+        yourTripTitleLabel.anchor(top: bgImage.bottomAnchor, leading: leadingAnchor, margin: .leftOnly(13))
         
         yourTripSubTitleLabel.anchor(top: yourTripTitleLabel.bottomAnchor, leading: leadingAnchor, margin: .topLeftOnly(10, 13))
         
         
-        let dropdownView = DropdownView(items: ["Planned Trips", "Trip 2", "Trip 3", "Trip 4", "Trip 5"])
-                dropdownView.onItemSelected = { selectedItem in
-                    print("Selected item: \(selectedItem)")
-                }
-        
-        addSubview(dropdownView)
-        dropdownView.anchor(top: yourTripSubTitleLabel.bottomAnchor, leading: leadingAnchor, trailing: trailingAnchor, margin: .init(top: 10, left: 12, bottom: 0, right: 13), size: .init(width: 0, height: 55))
-        
+        dropdownView = DropdownView(items: ["Planned Trips", "Trip 2", "Trip 3", "Trip 4", "Trip 5"])
+        dropdownView?.onItemSelected = { [weak self] selectedItem  in
+            print("Selected item: \(selectedItem)")
+            self?.delegate?.onItemSelected(item: selectedItem)
 
-        bringSubviewToFront(dropdownView)
+        }
+
+        addSubview(dropdownView!)
+        dropdownView?.anchor(top: yourTripSubTitleLabel.bottomAnchor, leading: leadingAnchor, trailing: trailingAnchor, margin: .init(top: 20, left: 12, bottom: 0, right: 13), size: .init(width: 0, height: 55))
+        
+       //bringSubviewToFront(dropdownView!)
     }
 }
 

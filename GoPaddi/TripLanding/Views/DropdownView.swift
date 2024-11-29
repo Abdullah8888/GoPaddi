@@ -17,10 +17,10 @@ final class DropdownView: UIView {
         button.titleLabel?.font = .satoshiBold()
         button.setTitleColor(.hex1D2433, for: .normal)
         button.contentHorizontalAlignment = .left
-        button.backgroundColor = UIColor(white: 0.95, alpha: 1.0)
-        button.layer.cornerRadius = 8
+        button.backgroundColor = .white
+        button.layer.cornerRadius = 4
         button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.lightGray.cgColor
+        button.layer.borderColor = UIColor.white.cgColor
         button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
         button.addTarget(self, action: #selector(toggleDropdown), for: .touchUpInside)
         return button
@@ -30,25 +30,42 @@ final class DropdownView: UIView {
         let tableView = UITableView()
         tableView.layer.cornerRadius = 8
         tableView.layer.borderWidth = 1
-        tableView.layer.borderColor = UIColor.lightGray.cgColor
+        tableView.layer.borderColor = UIColor.white.cgColor
         tableView.separatorInset = .zero
         tableView.backgroundColor = .white
         tableView.showsVerticalScrollIndicator = false
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.backgroundColor = .white
+        tableView.separatorStyle = .none
         tableView.register(DropDownCell.self, forCellReuseIdentifier: dropDownCell)
         return tableView
     }()
     
+    private let containerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .hexF0F2F5
+        view.layer.cornerRadius = 4
+        return view
+    }()
+    
+    let caretDownIcon: UIImageView = {
+        let img = UIImageView(image: UIImage(named: "caret_down_icon"))
+        img.contentMode = .center
+        return img
+    }()
+    
     private var dropdownItems: [String] = []
     private var isDropdownVisible = false
+    private var selectedIndexPath: IndexPath?
     var onItemSelected: ((String) -> Void)?
-
+    
     init(items: [String]) {
         self.dropdownItems = items
         super.init(frame: .zero)
         setupViews()
         NotificationCenter.default.addObserver(self, selector: #selector(handleTableViewStartScrolling), name: NSNotification.Name("TableViewDidStartScrolling"), object: nil)
+        preselectIndex(index: 0)
     }
     
     required init?(coder: NSCoder) {
@@ -70,15 +87,14 @@ final class DropdownView: UIView {
     }
 
     private func setupViews() {
+        addSubview(containerView)
+        containerView.anchor(top: topAnchor, leading: leadingAnchor, trailing: trailingAnchor, size: .init(width: 0, height: 60))
         
-        addSubview(dropdownButton)
-        dropdownButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            dropdownButton.topAnchor.constraint(equalTo: topAnchor),
-            dropdownButton.leadingAnchor.constraint(equalTo: leadingAnchor),
-            dropdownButton.trailingAnchor.constraint(equalTo: trailingAnchor),
-            dropdownButton.heightAnchor.constraint(equalToConstant: 50)
-        ])
+        containerView.addSubview(dropdownButton)
+        dropdownButton.fillUpSuperview(margin: .init(allEdges: 10))
+        
+        dropdownButton.addSubview(caretDownIcon)
+        caretDownIcon.anchor(top: dropdownButton.topAnchor, bottom: dropdownButton.bottomAnchor, trailing: dropdownButton.trailingAnchor, margin: .rightOnly(7), size: .init(width: 20, height: 0))
     }
     
     @objc private func toggleDropdown() {
@@ -93,16 +109,21 @@ final class DropdownView: UIView {
     private func addDropdownTableView() {
         guard let window = UIApplication.shared.windows.first else { return }
         
-        let buttonFrame = self.convert(dropdownButton.frame, to: window)
+        let buttonFrame = self.convert(containerView.frame, to: window)
         
         window.addSubview(dropdownTableView)
         dropdownTableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            dropdownTableView.topAnchor.constraint(equalTo: window.topAnchor, constant: buttonFrame.maxY + 8),
+            dropdownTableView.bottomAnchor.constraint(equalTo: window.topAnchor, constant: buttonFrame.minY + 8),
             dropdownTableView.leadingAnchor.constraint(equalTo: window.leadingAnchor, constant: buttonFrame.minX),
             dropdownTableView.widthAnchor.constraint(equalToConstant: buttonFrame.width),
             dropdownTableView.heightAnchor.constraint(equalToConstant: 200)
         ])
+        
+        let text = dropdownButton.titleLabel?.text
+        if let index = dropdownItems.firstIndex(of: text!) {
+            preselectIndex(index: index)
+        }
     }
     
     private func removeDropdownTableView() {
@@ -111,6 +132,13 @@ final class DropdownView: UIView {
     
     func setItems(_ items: [String]) {
         dropdownItems = items
+        dropdownTableView.reloadData()
+    }
+    
+    func preselectIndex(index: Int) {
+        let preselectedIndex = index
+                selectedIndexPath = IndexPath(row: preselectedIndex, section: 0)
+        dropdownTableView.selectRow(at: selectedIndexPath, animated: false, scrollPosition: .none)
         dropdownTableView.reloadData()
     }
 }
@@ -125,6 +153,11 @@ extension DropdownView: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         cell.itemLabel.text = dropdownItems[indexPath.row]
+        if indexPath == selectedIndexPath {
+            cell.itemLabel.font = .satoshiBold()
+        } else {
+            cell.itemLabel.font = .satoshiRegular()
+        }
         return cell
     }
     

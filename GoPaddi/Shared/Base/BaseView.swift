@@ -46,7 +46,7 @@ class BaseView: UIView {
             print("subview.frame.size lala is \(subview.frame), \(subview.frame.maxY) \(subview.frame.minY), \(subview.frame.height)")
             print("subview.bounds lala is \(subview.bounds), \(subview.bounds.maxY) \(subview.bounds.minY) \(subview.bounds.height)")
             if subview.frame.size.height > 0 {
-                totalHeight += subview.frame.size.height
+                totalHeight += subview.bounds.maxY
                 print("output is \(totalHeight)")
                 
             }

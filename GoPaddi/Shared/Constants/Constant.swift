@@ -46,5 +46,7 @@ class Constant {
 //    static var navWithStatusBarHeight2: CGFloat {
 //        return (UIWindow.key?.rootViewController?.navigationController?.navigationBar.bounds.height ?? 0) + statusBarFrameHeight
 //    }
+    
+    static let locationData = "location_data"
 
 }

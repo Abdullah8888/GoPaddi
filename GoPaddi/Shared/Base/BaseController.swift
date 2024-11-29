@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BaseController<SubView: UIView>: UIViewController {
+class BaseController<SubView: UIView>: MainBaseController {
     let _view: SubView
     
     init(view: SubView = SubView()) {

@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol CreateTripFloatingViewDelegate: AnyObject {
+    func onCreateTripClicked()
+}
+
 final class CreateTripFloatingView: BaseView {
     
     let containerView: UIView = {
@@ -131,6 +135,8 @@ final class CreateTripFloatingView: BaseView {
         return btn
     }()
     
+    var delegate: CreateTripFloatingViewDelegate?
+    
     override func setup() {
         super.setup()
         cityContainerView.addSubviews(locationIcon, whereToLabel, selectCityLabel)
@@ -161,6 +167,11 @@ final class CreateTripFloatingView: BaseView {
         createTipBtn.anchor(leading: containerView.leadingAnchor, bottom: containerView.bottomAnchor, trailing: containerView.trailingAnchor, margin: .init(top: 0, left: 13, bottom: 13, right: 13), size: .init(width: 0, height: 50))
         
         verticalStackView.anchor(top: containerView.topAnchor, leading: containerView.leadingAnchor, bottom: createTipBtn.topAnchor, trailing: containerView.trailingAnchor, margin: .init(allEdges: 13))
+        
+        
+        createTipBtn.onClick(completion: weakify({ strongSelf in
+            strongSelf.delegate?.onCreateTripClicked()
+        }))
         
     }
 }

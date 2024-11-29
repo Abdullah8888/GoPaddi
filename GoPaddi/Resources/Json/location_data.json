@@ -1,0 +1,58 @@
+{
+  "data": [
+    {
+      "countryName": "Lagos, Nigeria",
+      "airport": "Muritala Muhammed",
+      "flag": "flag_one_icon",
+      "countrAbbr": "NG"
+    },
+    {
+      "countryName": "Laghouat Algeria",
+      "airport": "Laghouat Algeri",
+      "flag": "flag_one_icon",
+      "countrAbbr": "DZ"
+    },
+    {
+      "countryName": "Doha, Qatar",
+      "airport": "Doha",
+      "flag": "flag_one_icon",
+      "countrAbbr": "QA"
+    },
+    {
+      "countryName": "Lagos, Nigeria",
+      "airport": "Muritala Muhammed",
+      "flag": "flag_two_icon",
+      "countrAbbr": "NG"
+    },
+    {
+      "countryName": "Laghouat Algeria",
+      "airport": "Laghouat Algeri",
+      "flag": "flag_two_icon",
+      "countrAbbr": "DZ"
+    },
+    {
+      "countryName": "Doha, Qatar",
+      "airport": "Doha",
+      "flag": "flag_two_icon",
+      "countrAbbr": "QA"
+    },
+    {
+      "countryName": "Lagos, Nigeria",
+      "airport": "Muritala Muhammed",
+      "flag": "flag_three_icon",
+      "countrAbbr": "NG"
+    },
+    {
+      "countryName": "Laghouat Algeria",
+      "airport": "Laghouat Algeri",
+      "flag": "flag_three_icon",
+      "countrAbbr": "DZ"
+    },
+    {
+      "countryName": "Doha, Qatar",
+      "airport": "Doha",
+      "flag": "flag_three_icon",
+      "countrAbbr": "QA"
+    }
+  ]
+}
