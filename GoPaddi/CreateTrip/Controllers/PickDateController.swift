@@ -11,8 +11,8 @@ final class PickDateController: MainBaseController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "GoPaddi"
         setupNavigationBar(title: "Date")
+        view.backgroundColor = .white
     }
     
     override func viewWillAppear(_ animated: Bool) {

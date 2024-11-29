@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol LocationViewDelegate: AnyObject {
+    func onSelectedItem(locationEntity: LocationEntity)
+}
+
 final class LocationView: BaseView {
     
     let titleLabel: Label = {
@@ -45,6 +49,8 @@ final class LocationView: BaseView {
     }
 
     var filteredLocations: [LocationEntity] = []
+    
+    var delegate: LocationViewDelegate?
     
     override func setup() {
         super.setup()
@@ -93,6 +99,7 @@ extension LocationView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedLocation = filteredLocations[indexPath.row]
         debugPrint("selectedLocation is \(selectedLocation)")
+        delegate?.onSelectedItem(locationEntity: selectedLocation)
     }
 }
 
