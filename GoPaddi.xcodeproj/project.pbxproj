@@ -59,6 +59,7 @@
 		B8DDE0F62CF9F31B00370AE4 /* MainBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DDE0F52CF9F31B00370AE4 /* MainBaseController.swift */; };
 		B8DDE1012CF9F54900370AE4 /* EnterTripDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DDE0FF2CF9F54900370AE4 /* EnterTripDetailsController.swift */; };
 		B8DDE1022CF9F54900370AE4 /* EnterTripDetailsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8DDE1002CF9F54900370AE4 /* EnterTripDetailsController.xib */; };
+		B8DDE1052CF9F99D00370AE4 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = B8DDE1042CF9F99D00370AE4 /* FSCalendar */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +136,7 @@
 		B8DDE0F52CF9F31B00370AE4 /* MainBaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBaseController.swift; sourceTree = "<group>"; };
 		B8DDE0FF2CF9F54900370AE4 /* EnterTripDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterTripDetailsController.swift; sourceTree = "<group>"; };
 		B8DDE1002CF9F54900370AE4 /* EnterTripDetailsController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnterTripDetailsController.xib; sourceTree = "<group>"; };
+		B8DDE1062CF9FB6800370AE4 /* GoPPadi-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GoPPadi-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8DDE1052CF9F99D00370AE4 /* FSCalendar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +366,7 @@
 				B828FFF42CF624D7007B34E0 /* LocationController.swift */,
 				B8DDE0F32CF9F23800370AE4 /* PickDateController.swift */,
 				B8DDE0FF2CF9F54900370AE4 /* EnterTripDetailsController.swift */,
+				B8DDE1062CF9FB6800370AE4 /* GoPPadi-Bridging-Header.h */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -408,6 +412,9 @@
 			dependencies = (
 			);
 			name = GoPaddi;
+			packageProductDependencies = (
+				B8DDE1042CF9F99D00370AE4 /* FSCalendar */,
+			);
 			productName = GoPaddi;
 			productReference = B828FFC02CF61A89007B34E0 /* GoPaddi.app */;
 			productType = "com.apple.product-type.application";
@@ -480,6 +487,9 @@
 				Base,
 			);
 			mainGroup = B828FFB72CF61A88007B34E0;
+			packageReferences = (
+				B8DDE1032CF9F99C00370AE4 /* XCRemoteSwiftPackageReference "FSCalendar" */,
+			);
 			productRefGroup = B828FFC12CF61A89007B34E0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -902,6 +912,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B8DDE1032CF9F99C00370AE4 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WenchaoD/FSCalendar";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B8DDE1042CF9F99D00370AE4 /* FSCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B8DDE1032CF9F99C00370AE4 /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			productName = FSCalendar;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B828FFB82CF61A88007B34E0 /* Project object */;
 }
