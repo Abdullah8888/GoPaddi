@@ -48,5 +48,7 @@ class Constant {
 //    }
     
     static let locationData = "location_data"
+    
+    static let enterTripDetailsController = "EnterTripDetailsController"
 
 }

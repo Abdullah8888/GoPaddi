@@ -23,7 +23,7 @@ final class LocationView: BaseView {
     let cityTextField: TextField = {
         let textField = TextField()
         textField.layer.borderWidth = 2
-        textField.layer.borderColor = UIColor.hex0D6EFD.cgColor
+        textField.layer.borderColor = UIColor.hex98A2B3.cgColor
         textField.backgroundColor = .white
         textField.layer.cornerRadius = 4
         textField.font = .satoshiMedium(size: 16)
@@ -50,7 +50,7 @@ final class LocationView: BaseView {
 
     var filteredLocations: [LocationEntity] = []
     
-    var delegate: LocationViewDelegate?
+    weak var delegate: LocationViewDelegate?
     
     override func setup() {
         super.setup()
@@ -71,8 +71,10 @@ final class LocationView: BaseView {
         let typedText = textField.text ?? ""
         debugPrint("User typed: \(typedText)")
         if typedText.isEmpty {
+            textField.layer.borderColor = UIColor.hex98A2B3.cgColor
             filteredLocations = allLocations
         } else {
+            textField.layer.borderColor = UIColor.hex0D6EFD.cgColor
             filteredLocations = allLocations.filter { $0.countryName.lowercased().contains(typedText.lowercased()) }
         }
         

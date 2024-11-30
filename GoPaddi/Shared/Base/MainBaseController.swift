@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Toast
 
 class MainBaseController: UIViewController {
 
@@ -38,5 +39,10 @@ class MainBaseController: UIViewController {
     
     @objc private func didTapClose() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    func showToast(message: String) {
+        let toast = Toast.text(message)
+        toast.show()
     }
 }

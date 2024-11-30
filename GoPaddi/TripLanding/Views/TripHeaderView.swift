@@ -66,7 +66,7 @@ final class TripHeaderView: BaseView {
     
     private var emptyMessageLabel: Label?
     
-    var delegate: TripHeaderViewDelegate?
+    weak var delegate: TripHeaderViewDelegate?
     
     override func setup() {
         super.setup()

@@ -135,7 +135,7 @@ final class CreateTripFloatingView: BaseView {
         return btn
     }()
     
-    var delegate: CreateTripFloatingViewDelegate?
+    weak var delegate: CreateTripFloatingViewDelegate?
     
     override func setup() {
         super.setup()
