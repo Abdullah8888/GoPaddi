@@ -3,6 +3,10 @@
 An intuitive flight booking app that lets you search, view all planned 
 trips, and book flights seamlessly.
 
+<p>
+    <img src="https://github.com/accelerex-developer/RexPayiOS/blob/main/RexpaySDK/ReadmeFiles/landing_page.png" width="200px" height="auto" hspace="20"/>
+
+</p>
 
 ## How to run the project
 
