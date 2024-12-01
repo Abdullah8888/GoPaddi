@@ -30,25 +30,16 @@ final class TripLandingView: BaseView {
         tableView.fillUpSuperview()
     }
     
-    var items: [Int] = [1,2] {
+    var items: [TripEntity]? {
         didSet {
             tableView.reloadData()
         }
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        updateContentHeight()
-    }
-    
     func setTripHeaderView() {
-        tripHeaderView = TripHeaderView(frame: CGRect(x: 0, y: 0, width: Constant.screenWidth, height: contentHeight! - 20))
+        tripHeaderView = TripHeaderView(frame: CGRect(x: 0, y: 0, width: Constant.screenWidth, height: 715))
         tableView.tableHeaderView = tripHeaderView
         tableView.tableHeaderView?.layoutIfNeeded()
-//        if items.isEmpty {
-//            //showPlaceholderView(message: "Empty")
-//            tripHeaderView?.showEmptyView(message: "Empty")
-//        }
     }
     
 }
@@ -56,35 +47,59 @@ final class TripLandingView: BaseView {
 extension TripLandingView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        if items.isEmpty {
-//            //showPlaceholderView(message: "Empty")
-//            tableView.setEmptyView("Empty")
-//        }
-//        else {
-//            tableView.backgroundView = nil
-//            tableView.reloadData()
-//        }
-        return items.count
+
+        
+        if let count = items?.count {
+            return count >= 1 ? count : 1
+        }
+        else {
+            return 1
+        }
+        
+        //return items?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+    
         
-        if items.count == 1 {
+        guard let items = items else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: emptyCell, for: indexPath) as? EmptyCell else {
                 return UITableViewCell()
             }
             cell.configure(with: "Empty")
             return cell
         }
-        else {
+
+        if items.count >= 1 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: plannedTripCell, for: indexPath) as? PlannedTripCell else {
                 return UITableViewCell()
             }
-            cell.configure(with: "Row \(indexPath.row + 1)")
-            //cell.backgroundColor = (indexPath.row + 1) % 2 == 0  ? .red : .blue
+            cell.configure(with: items[indexPath.row])
             return cell
         }
+        else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: emptyCell, for: indexPath) as? EmptyCell else {
+                return UITableViewCell()
+            }
+            cell.configure(with: "Empty")
+            return cell
+        }
+        
+//        guard let items = items else {
+//            guard let cell = tableView.dequeueReusableCell(withIdentifier: emptyCell, for: indexPath) as? EmptyCell else {
+//                return UITableViewCell()
+//            }
+//            cell.configure(with: "Empty")
+//            return cell
+//        }
+//
+//        guard let cell = tableView.dequeueReusableCell(withIdentifier: plannedTripCell, for: indexPath) as? PlannedTripCell else {
+//            return UITableViewCell()
+//        }
+//        cell.configure(with: items[indexPath.row])
+//        return cell
+      
     }
 }
 

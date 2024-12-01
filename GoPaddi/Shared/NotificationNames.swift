@@ -7,4 +7,5 @@
 
 struct NotificationNames {
     static let tableViewDidStartScrolling = "TableViewDidStartScrolling"
+    static let didEndPlanningTrip = "didEndPlanningTrip"
 }

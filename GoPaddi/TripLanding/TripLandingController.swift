@@ -9,29 +9,69 @@ import UIKit
 
 final class TripLandingController: BaseController<TripLandingView>, TripHeaderViewDelegate, CreateTripFloatingViewDelegate {
     
+    var viewModel: TripLandingViewModel?
+     weak var mainCoordinator: MainCoordinator?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "GoPaddi"
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
         _view.setTripHeaderView()
         _view.tripHeaderView?.delegate = self
         _view.tripHeaderView?.createTripFloatingView.delegate = self
+        //showLoader()
+        responseListeners()
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) { [weak viewModel] in
+            Task {
+                await viewModel?.fetchTrips()
+            }
+        }
+        NotificationCenter.default.addObserver(self, selector: #selector(didEndPlanningTrip), name: NSNotification.Name(NotificationNames.didEndPlanningTrip), object: nil)
     }
     
     func onItemSelected(item: String) {
-        debugPrint("na me \(item)")
+        debugPrint("onItemSelected >> \(item)")
     }
     
     func onCreateTripClicked() {
-        let vc = LocationController(view: LocationView())
-        navigationController?.pushViewController(vc, animated: true)
+        mainCoordinator?.moveToLocation()
+    }
+    
+    func responseListeners() {
+        viewModel?.tripEntitiesResponse
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: weakify({ strongSelf, completion in
+                switch completion {
+                case .finished:
+                    print("tripEntitiesResponse error")
+                case .failure(let error):
+                    print("tripEntitiesResponse is \(error)")
+                    
+                }
+                //strongSelf.removeLoader()
+            }) , receiveValue: weakify({ strongSelf, data in
+                //strongSelf.removeLoader()
+                print("details => \(data)")
+                strongSelf._view.items = data
+                print("show success page")
+                
+            }))
+            .store(in: &subscriptions)
+        
+        viewModel?.errResponse
+            .receive(on: DispatchQueue.main)
+            .sink(receiveValue: weakify({ strongSelf, error in
+                strongSelf.showToast(message: "\(error.composeErrMessage)")
+             
+            }))
+            .store(in: &subscriptions)
+    }
+    
+    @objc private func didEndPlanningTrip(notification: Notification) {
+        Task {
+            await viewModel?.fetchTrips()
+        }
     }
 }
+
+
 

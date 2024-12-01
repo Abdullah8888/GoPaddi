@@ -10,15 +10,18 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
-
+    var mainCoordinator: MainCoordinator?
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        DIContainer.register()
         guard let windowScene = scene as? UIWindowScene else { return }
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = UINavigationController(rootViewController: TripLandingController(view: TripLandingView()))
-        window?.makeKeyAndVisible()
+        mainCoordinator = MainCoordinator( navigationController: UINavigationController(), window: window!)
+        mainCoordinator?.start()
     }
-
+    
+    func asf() {
+        
+    }
     func sceneDidDisconnect(_ scene: UIScene) {
     
     }

@@ -62,6 +62,13 @@ final class TripHeaderView: BaseView {
         return label
     }()
     
+    private let dropDownContainerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .hexF0F2F5
+        view.layer.cornerRadius = 4
+        return view
+    }()
+    
     private var dropdownView: DropdownView?
     
     private var emptyMessageLabel: Label?
@@ -80,6 +87,9 @@ final class TripHeaderView: BaseView {
         yourTripTitleLabel.anchor(top: bgImage.bottomAnchor, leading: leadingAnchor, margin: .leftOnly(13))
         
         yourTripSubTitleLabel.anchor(top: yourTripTitleLabel.bottomAnchor, leading: leadingAnchor, margin: .topLeftOnly(10, 13))
+    
+        addSubview(dropDownContainerView)
+        dropDownContainerView.anchor(top: yourTripSubTitleLabel.bottomAnchor, leading: leadingAnchor, trailing: trailingAnchor, margin: .init(top: 20, left: 12, bottom: 0, right: 13), size: .init(width: 0, height: 70))
         
         
         dropdownView = DropdownView(items: ["Planned Trips", "Trip 2", "Trip 3", "Trip 4", "Trip 5"])
@@ -88,9 +98,9 @@ final class TripHeaderView: BaseView {
             self?.delegate?.onItemSelected(item: selectedItem)
 
         }
-
-        addSubview(dropdownView!)
-        dropdownView?.anchor(top: yourTripSubTitleLabel.bottomAnchor, leading: leadingAnchor, trailing: trailingAnchor, margin: .init(top: 20, left: 12, bottom: 0, right: 13), size: .init(width: 0, height: 55))
+        
+        dropDownContainerView.addSubview(dropdownView!)
+        dropdownView?.fillUpSuperview(margin: .init(allEdges: 10))
         
        //bringSubviewToFront(dropdownView!)
     }

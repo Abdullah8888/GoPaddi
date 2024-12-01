@@ -43,11 +43,11 @@ class BaseView: UIView {
         var totalHeight: CGFloat = 0.0
         var verticalDistance: CGFloat = 0.0
         for subview in subviews {
-            print("subview.frame.size lala is \(subview.frame), \(subview.frame.maxY) \(subview.frame.minY), \(subview.frame.height)")
-            print("subview.bounds lala is \(subview.bounds), \(subview.bounds.maxY) \(subview.bounds.minY) \(subview.bounds.height)")
+            debugPrint("subview.frame.size lala is \(subview.frame), \(subview.frame.maxY) \(subview.frame.minY), \(subview.frame.height)")
+            debugPrint("subview.bounds lala is \(subview.bounds), \(subview.bounds.maxY) \(subview.bounds.minY) \(subview.bounds.height)")
             if subview.frame.size.height > 0 {
-                totalHeight += subview.bounds.maxY
-                print("output is \(totalHeight)")
+                totalHeight += subview.frame.size.height
+                debugPrint("output is \(totalHeight)")
                 
             }
         }
@@ -71,8 +71,9 @@ class BaseView: UIView {
             }
         }
         debugPrint("totalVerticalDistance is \(totalVerticalDistance)")
-        contentHeight = totalHeight
         debugPrint("contentHeight output is \(contentHeight)")
+        contentHeight = totalHeight
+        
     }
 }
 

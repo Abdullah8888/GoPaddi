@@ -10,6 +10,9 @@ import UIKit
 
 final class LocationController: BaseController<LocationView>, LocationViewDelegate {
     
+    var viewModel: CreateTripViewModel?
+    weak var createTripCoordinator: CreateTripCoordinator?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar(title: "Where")
@@ -18,6 +21,11 @@ final class LocationController: BaseController<LocationView>, LocationViewDelega
         _view.allLocations = locationData?.data ?? []
         _view.filteredLocations = locationData?.data ?? []
         _view.delegate = self
+
+        onTapClose = weakify({ strongSelf in
+            strongSelf.createTripCoordinator?.pop(isCompleted: true)
+        })
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -25,7 +33,11 @@ final class LocationController: BaseController<LocationView>, LocationViewDelega
     }
     
     func onSelectedItem(locationEntity: LocationEntity) {
-        let vc = PickDateController()
-        navigationController?.pushViewController(vc, animated: false)
+        viewModel?.selectedLocationEntity = locationEntity
+        createTripCoordinator?.moveToPickDate()
+    }
+    
+    deinit {
+        debugPrint("LocationController is deallocated")
     }
 }

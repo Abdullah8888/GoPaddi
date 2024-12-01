@@ -11,7 +11,7 @@ final class DropdownView: UIView {
     
     let dropDownCell = String(describing: DropDownCell.self)
     
-    private lazy var dropdownButton: UIButton = {
+    lazy var dropdownButton: UIButton = {
         let button = UIButton()
         button.setTitle("Planned Trips", for: .normal)
         button.titleLabel?.font = .satoshiBold()
@@ -40,13 +40,6 @@ final class DropdownView: UIView {
         tableView.separatorStyle = .none
         tableView.register(DropDownCell.self, forCellReuseIdentifier: dropDownCell)
         return tableView
-    }()
-    
-    private let containerView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .hexF0F2F5
-        view.layer.cornerRadius = 4
-        return view
     }()
     
     let caretDownIcon: UIImageView = {
@@ -87,12 +80,9 @@ final class DropdownView: UIView {
     }
 
     private func setupViews() {
-        addSubview(containerView)
-        containerView.anchor(top: topAnchor, leading: leadingAnchor, trailing: trailingAnchor, size: .init(width: 0, height: 60))
-        
-        containerView.addSubview(dropdownButton)
-        dropdownButton.fillUpSuperview(margin: .init(allEdges: 10))
-        
+        addSubview(dropdownButton)
+        dropdownButton.fillUpSuperview()
+
         dropdownButton.addSubview(caretDownIcon)
         caretDownIcon.anchor(top: dropdownButton.topAnchor, bottom: dropdownButton.bottomAnchor, trailing: dropdownButton.trailingAnchor, margin: .rightOnly(7), size: .init(width: 20, height: 0))
     }
@@ -109,7 +99,7 @@ final class DropdownView: UIView {
     private func addDropdownTableView() {
         guard let window = UIApplication.shared.windows.first else { return }
         
-        let buttonFrame = self.convert(containerView.frame, to: window)
+        let buttonFrame = self.convert(dropdownButton.frame, to: window)
         
         window.addSubview(dropdownTableView)
         dropdownTableView.translatesAutoresizingMaskIntoConstraints = false
@@ -154,9 +144,9 @@ extension DropdownView: UITableViewDelegate, UITableViewDataSource {
         }
         cell.itemLabel.text = dropdownItems[indexPath.row]
         if indexPath == selectedIndexPath {
-            cell.itemLabel.font = .satoshiBold()
+            cell.setItemSelected()
         } else {
-            cell.itemLabel.font = .satoshiRegular()
+            cell.unSetItemSelected()
         }
         return cell
     }
@@ -177,11 +167,33 @@ final class DropDownCell: BaseTableViewCell {
         label.textColor = .hex1D2433
         return label
     }()
+    
+    let checkIcon: UIImageView = {
+        let img = UIImageView(image: UIImage(named: "check_icon"))
+        img.contentMode = .scaleAspectFill
+        img.isHidden = true
+        return img
+    }()
 
     override func setup() {
         super.setup()
-        contentView.addSubview(itemLabel)
+        contentView.addSubviews(itemLabel, checkIcon)
         itemLabel.fillUpSuperview()
+        checkIcon.placeAtRightCenterOf(centerY: contentView.centerYAnchor,trailing: contentView.trailingAnchor, margin: .rightOnly(10))
+    }
+    
+    func setItemSelected() {
+        itemLabel.font = .satoshiBold()
+        itemLabel.textColor = .white
+        backgroundColor = .hex0D6EFD
+        checkIcon.isHidden = false
+    }
+    
+    func unSetItemSelected() {
+        itemLabel.font = .satoshiRegular()
+        itemLabel.textColor = .hex1D2433
+        backgroundColor = .white
+        checkIcon.isHidden = true
     }
 }
 

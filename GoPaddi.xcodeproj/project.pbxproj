@@ -45,6 +45,13 @@
 		B84102582CFBB207006336E7 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84102572CFBB207006336E7 /* UITextField+Extension.swift */; };
 		B841025A2CFBB229006336E7 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84102592CFBB229006336E7 /* UITextView+Extension.swift */; };
 		B841025C2CFBB468006336E7 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B841025B2CFBB468006336E7 /* UILabel+Extension.swift */; };
+		B841025E2CFBBDC2006336E7 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B841025D2CFBBDC2006336E7 /* ErrorResponse.swift */; };
+		B84102602CFBBF95006336E7 /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B841025F2CFBBF95006336E7 /* Collection+Extension.swift */; };
+		B84102682CFBD3E0006336E7 /* UIWindow+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84102672CFBD3E0006336E7 /* UIWindow+Extension.swift */; };
+		B841026B2CFBE5EE006336E7 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B841026A2CFBE5EE006336E7 /* Coordinator.swift */; };
+		B841026D2CFBE98A006336E7 /* CreateTripCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B841026C2CFBE98A006336E7 /* CreateTripCoordinator.swift */; };
+		B84102742CFBEFE4006336E7 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84102732CFBEFE4006336E7 /* DIContainer.swift */; };
+		B841029F2CFBF6DA006336E7 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = B841029E2CFBF6DA006336E7 /* Swinject */; };
 		B87D912C2CFB5F5D00DCB226 /* ChooseDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87D912B2CFB5F5D00DCB226 /* ChooseDateView.swift */; };
 		B87D912E2CFB7AA000DCB226 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87D912D2CFB7AA000DCB226 /* Date+Extension.swift */; };
 		B8DDE0CB2CF8DA2D00370AE4 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DDE0CA2CF8DA2D00370AE4 /* PreviewProvider.swift */; };
@@ -128,6 +135,12 @@
 		B84102572CFBB207006336E7 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		B84102592CFBB229006336E7 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
 		B841025B2CFBB468006336E7 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		B841025D2CFBBDC2006336E7 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
+		B841025F2CFBBF95006336E7 /* Collection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extension.swift"; sourceTree = "<group>"; };
+		B84102672CFBD3E0006336E7 /* UIWindow+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extension.swift"; sourceTree = "<group>"; };
+		B841026A2CFBE5EE006336E7 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		B841026C2CFBE98A006336E7 /* CreateTripCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTripCoordinator.swift; sourceTree = "<group>"; };
+		B84102732CFBEFE4006336E7 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		B87D912B2CFB5F5D00DCB226 /* ChooseDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseDateView.swift; sourceTree = "<group>"; };
 		B87D912D2CFB7AA000DCB226 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		B8DDE0CA2CF8DA2D00370AE4 /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
@@ -159,6 +172,7 @@
 			files = (
 				B84102542CFB806A006336E7 /* Toast in Frameworks */,
 				B8DDE1052CF9F99D00370AE4 /* FSCalendar in Frameworks */,
+				B841029F2CFBF6DA006336E7 /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +252,8 @@
 				B84102572CFBB207006336E7 /* UITextField+Extension.swift */,
 				B84102592CFBB229006336E7 /* UITextView+Extension.swift */,
 				B841025B2CFBB468006336E7 /* UILabel+Extension.swift */,
+				B841025F2CFBBF95006336E7 /* Collection+Extension.swift */,
+				B84102672CFBD3E0006336E7 /* UIWindow+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -309,6 +325,7 @@
 		B828FFC22CF61A89007B34E0 /* GoPaddi */ = {
 			isa = PBXGroup;
 			children = (
+				B84102692CFBE5C4006336E7 /* Config */,
 				B828001B2CF7B56E007B34E0 /* Resources */,
 				B82800052CF62823007B34E0 /* Shared */,
 				B828FFF62CF624E5007B34E0 /* Infrastructure */,
@@ -340,6 +357,7 @@
 				B8DDE0D92CF9A44400370AE4 /* Views */,
 				B8DDE0D62CF9A3FF00370AE4 /* Controllers */,
 				B8DDE0E02CF9B38800370AE4 /* CreateTripViewModel.swift */,
+				B841026C2CFBE98A006336E7 /* CreateTripCoordinator.swift */,
 			);
 			path = CreateTrip;
 			sourceTree = "<group>";
@@ -367,6 +385,7 @@
 			isa = PBXGroup;
 			children = (
 				B82800002CF62777007B34E0 /* TripEntity.swift */,
+				B841025D2CFBBDC2006336E7 /* ErrorResponse.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -377,6 +396,23 @@
 				B828FFFC2CF62690007B34E0 /* TripRepository.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		B84102612CFBCA25006336E7 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				B84102732CFBEFE4006336E7 /* DIContainer.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		B84102692CFBE5C4006336E7 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				B84102612CFBCA25006336E7 /* DI */,
+				B841026A2CFBE5EE006336E7 /* Coordinator.swift */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 		B8DDE0D62CF9A3FF00370AE4 /* Controllers */ = {
@@ -435,6 +471,7 @@
 			packageProductDependencies = (
 				B8DDE1042CF9F99D00370AE4 /* FSCalendar */,
 				B84102532CFB806A006336E7 /* Toast */,
+				B841029E2CFBF6DA006336E7 /* Swinject */,
 			);
 			productName = GoPaddi;
 			productReference = B828FFC02CF61A89007B34E0 /* GoPaddi.app */;
@@ -511,6 +548,7 @@
 			packageReferences = (
 				B8DDE1032CF9F99C00370AE4 /* XCRemoteSwiftPackageReference "FSCalendar" */,
 				B84102522CFB806A006336E7 /* XCRemoteSwiftPackageReference "toast-swift" */,
+				B841029D2CFBF6DA006336E7 /* XCRemoteSwiftPackageReference "Swinject" */,
 			);
 			productRefGroup = B828FFC12CF61A89007B34E0 /* Products */;
 			projectDirPath = "";
@@ -583,8 +621,11 @@
 				B82800042CF627AE007B34E0 /* TripLandingView.swift in Sources */,
 				B828FFC82CF61A89007B34E0 /* TripLandingController.swift in Sources */,
 				B828001A2CF6BF5E007B34E0 /* UIEdgeInsets+Extension.swift in Sources */,
+				B84102682CFBD3E0006336E7 /* UIWindow+Extension.swift in Sources */,
 				B8DDE0F62CF9F31B00370AE4 /* MainBaseController.swift in Sources */,
 				B8DDE1012CF9F54900370AE4 /* EnterTripDetailsController.swift in Sources */,
+				B841025E2CFBBDC2006336E7 /* ErrorResponse.swift in Sources */,
+				B84102742CFBEFE4006336E7 /* DIContainer.swift in Sources */,
 				B87D912C2CFB5F5D00DCB226 /* ChooseDateView.swift in Sources */,
 				B828FFC42CF61A89007B34E0 /* AppDelegate.swift in Sources */,
 				B828000A2CF62900007B34E0 /* BaseView.swift in Sources */,
@@ -596,9 +637,12 @@
 				B84102562CFB8DEE006336E7 /* CustomPresentationController.swift in Sources */,
 				B828000D2CF62930007B34E0 /* Constant.swift in Sources */,
 				B8DDE0E52CF9B86300370AE4 /* TextField.swift in Sources */,
+				B841026B2CFBE5EE006336E7 /* Coordinator.swift in Sources */,
 				B8DDE0CD2CF8E40B00370AE4 /* DropdownView.swift in Sources */,
 				B8DDE0D32CF93EE400370AE4 /* GradientCardView.swift in Sources */,
+				B841026D2CFBE98A006336E7 /* CreateTripCoordinator.swift in Sources */,
 				B82800122CF69DAC007B34E0 /* TripHeaderView.swift in Sources */,
+				B84102602CFBBF95006336E7 /* Collection+Extension.swift in Sources */,
 				B84102582CFBB207006336E7 /* UITextField+Extension.swift in Sources */,
 				B8DDE0EE2CF9E25B00370AE4 /* URL+Extension.swift in Sources */,
 				B82800012CF62777007B34E0 /* TripEntity.swift in Sources */,
@@ -950,6 +994,14 @@
 				minimumVersion = 2.1.2;
 			};
 		};
+		B841029D2CFBF6DA006336E7 /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.4;
+			};
+		};
 		B8DDE1032CF9F99C00370AE4 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/WenchaoD/FSCalendar";
@@ -965,6 +1017,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B84102522CFB806A006336E7 /* XCRemoteSwiftPackageReference "toast-swift" */;
 			productName = Toast;
+		};
+		B841029E2CFBF6DA006336E7 /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B841029D2CFBF6DA006336E7 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
 		};
 		B8DDE1042CF9F99D00370AE4 /* FSCalendar */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -20,20 +20,18 @@ final class PickDateController: MainBaseController {
         return view
     }()
     var setDateFor: SetDateFor = .startDate
+    var viewModel: CreateTripViewModel?
+    weak var createTripCoordinator: CreateTripCoordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar(title: "Date")
         view.backgroundColor = .white
-        
-        
-        // In loadView or viewDidLoad
-//        let calendar = FSCalendar(frame: CGRect(x: 0, y: 0, width: Constant.screenWidth, height: Constant.screenHeight))
-//        calendar.dataSource = self
-//        calendar.delegate = self
-//        view.addSubview(calendar)
-//        self.calendar = calendar
         setupView()
+        
+        onTapClose = weakify({ strongSelf in
+            strongSelf.createTripCoordinator?.pop()
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,24 +74,13 @@ final class PickDateController: MainBaseController {
                     strongSelf.showToast(message: "Please make sure both dates are selected")
                 }
                 else {
-                    let vc = EnterTripDetailsController(nibName: Constant.enterTripDetailsController, bundle: nil)
-                    vc.modalPresentationStyle = .custom
-                    let customTransitionDelegate = CustomModalTransitioningDelegate()
-                    vc.transitioningDelegate = customTransitionDelegate
-                    vc.delegate = self
-                    strongSelf.navigationController?.present(vc, animated: true)
+                    strongSelf.createTripCoordinator?.presentEnterTripDetailsController()
                 }
             }
             else {
                 strongSelf.showToast(message: "Please make sure both dates are selected")
             }
         }))
-    }
-}
-
-extension PickDateController: EnterTripDetailsControllerDelegate {
-    func didFinishPlanningTrip() {
-        navigationController?.dismiss(animated: true)
     }
 }
 
@@ -106,9 +93,11 @@ extension PickDateController: FSCalendarDelegate {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         if setDateFor == .startDate {
             chooseDateView.startDateLabel.text = date.dateOnly()
+            viewModel?.selectedStartDate = date.dateOnly()
         }
         if setDateFor == .endDate {
             chooseDateView.endDateLabel.text = date.dateOnly()
+            viewModel?.selectedEndDate = date.dateOnly()
         }
         calendar.isHidden = true
         chooseDateView.isHidden = false

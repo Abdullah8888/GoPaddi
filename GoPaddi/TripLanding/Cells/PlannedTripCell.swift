@@ -74,8 +74,8 @@ final class PlannedTripCell: BaseTableViewCell {
         return stack
     }()
     
-    func configure(with text: String) {
-        tripNameLabel.text = text
+    func configure(with data: TripEntity) {
+        tripNameLabel.text = data.tripName
     }
     
     override func setup() {
@@ -106,7 +106,7 @@ final class PlannedTripCell: BaseTableViewCell {
 final class EmptyCell: BaseTableViewCell {
     
     let emptyLabel: Label = {
-        let label = Label(font: .satoshiRegular(size: 16))
+        let label = Label(font: .satoshiMedium(size: 16))
         label.textAlignment = .center
         return label
     }()
@@ -117,7 +117,7 @@ final class EmptyCell: BaseTableViewCell {
     
     override func setup() {
         super.setup()
-        backgroundColor = .darkGray
+        backgroundColor = .white
         contentView.addSubviews(emptyLabel)
         emptyLabel.fillUpSuperview()
     }

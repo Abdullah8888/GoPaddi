@@ -49,6 +49,5 @@ class Constant {
     
     static let locationData = "location_data"
     
-    static let enterTripDetailsController = "EnterTripDetailsController"
-
+    static let baseUrl = "https://ca81cb9c9dd7852898c7.free.beeceptor.com/api"
 }
