@@ -8,7 +8,7 @@ trips, and book flights seamlessly.
 
 </p>
 
-[Click here to download the recorder video](https://github.com)
+[Click here to download the recorder video](https://drive.google.com/file/d/1N-NB9MFCYWg_NqEnEbpO3yPQVScFMvnj/view?usp=sharing)
 
 ## How to run the project
 
