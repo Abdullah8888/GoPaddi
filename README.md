@@ -8,6 +8,8 @@ trips, and book flights seamlessly.
 
 </p>
 
+[Click here to download the recorder video](https://github.com)
+
 ## How to run the project
 
 Open the project via xcode after cloning it. 
