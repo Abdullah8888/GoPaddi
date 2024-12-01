@@ -76,6 +76,7 @@ final class PlannedTripCell: BaseTableViewCell {
     
     func configure(with data: TripEntity) {
         tripNameLabel.text = data.tripName
+        gradientCardView.titleLabel.text = data.tripLocation
     }
     
     override func setup() {

@@ -42,7 +42,7 @@ final class NetworkService {
                 print("debugging res => \(res)")
                 decodedResponse = try? JSONDecoder().decode(T.self, from: data)
                 if decodedResponse == nil {
-                    var errorResponse = try? JSONDecoder().decode(ErrorReponse.self, from: data)
+                    let errorResponse = try? JSONDecoder().decode(ErrorReponse.self, from: data)
                     return .failure(errorResponse ?? ErrorReponse(message: "Unknow error occured"))
                 }
             } else {

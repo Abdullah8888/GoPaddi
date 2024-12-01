@@ -9,7 +9,6 @@ import UIKit
 
 class BaseView: UIView {
 
-    let customNavHeight = Constant.statusBarFrameHeight + 55 + 20
     var contentHeight: CGFloat?
     
     func setup(){

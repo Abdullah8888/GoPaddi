@@ -38,16 +38,12 @@ final class EnterTripDetailsController: MainBaseController {
     
     weak var createTripCoordinator: CreateTripCoordinator?
     
-    var selectedTravelStyle: String?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        contentHeightConstraint.constant = Constant.screenHeight - 150
+        contentHeightConstraint.constant = Constant.screenHeight - 100
         setupView()
         cancelIcon.onClick(completion: weakify({ strongSelf in
-            //strongSelf.createTripCoordinator?.dismiss()
-            strongSelf.createTripCoordinator?.dismiss(animated: false)
-            strongSelf.createTripCoordinator?.goToRoot(animated: false)
+            strongSelf.createTripCoordinator?.dismiss()
         }))
         startListners()
         responseListeners()
@@ -68,8 +64,6 @@ final class EnterTripDetailsController: MainBaseController {
         dropdownView.dropdownButton.setTitleColor(.hex98A2B3, for: .normal)
         dropdownView.dropdownButton.titleLabel?.font = .satoshiMedium()
         dropdownView.onItemSelected = weakify({ strongSelf, item in
-            //strongSelf.selectedTravelStyle = item
-            //strongSelf.viewModel?.selectedTravelStyle.send(item)
             strongSelf.viewModel?.selectedTravelStyle = item
         })
         
@@ -80,7 +74,13 @@ final class EnterTripDetailsController: MainBaseController {
     @IBAction func onTapNextBtn(_ sender: UIButton) {
         showToast(message: "Processing ...")
         Task {
-            await viewModel?.createTrip(tripName: viewModel?.tripName ?? "", tripStyle: selectedTravelStyle ?? "", tripDescription: viewModel?.tripDescription ?? "")
+            guard let tripName = viewModel?.tripName,
+                  let tripTravelStyle =  viewModel?.selectedTravelStyle,
+                  let tripLocation = viewModel?.selectedLocationEntity?.countryName,
+                  let tripDescription = viewModel?.tripDescription else {
+                return
+            }
+            await viewModel?.createTrip(tripName: tripName, tripTravelStyle: tripTravelStyle, tripLocation: tripLocation, tripDescription: tripDescription)
         }
     }
     
@@ -93,7 +93,7 @@ final class EnterTripDetailsController: MainBaseController {
                .map { tripName, travelDescription, tripStyle in
                    !(tripName?.isEmpty ?? true) &&
                    !(travelDescription?.isEmpty ?? true) &&
-                   !(tripStyle?.isEmpty ?? true)
+                   !((tripStyle?.isEmpty ?? true) || (tripStyle == nil))
                }
                .receive(on: DispatchQueue.main)
                .sink(receiveValue: weakify({ strongSelf, isValid in
@@ -102,17 +102,11 @@ final class EnterTripDetailsController: MainBaseController {
                    
                    if isValid {
                        strongSelf.viewModel?.tripName = strongSelf.tripNameTextField.text
-                       strongSelf.selectedTravelStyle = strongSelf.travelDescriptionTextView.text
+                       strongSelf.viewModel?.selectedTravelStyle = strongSelf.travelDescriptionTextView.text
                        strongSelf.viewModel?.tripDescription = strongSelf.viewModel?.selectedTravelStyle
                    }
                }))
                .store(in: &cancellables)
-    }
-    
-    func setInput() {
-        viewModel?.tripName = tripNameTextField.text
-        viewModel?.selectedTravelStyle = travelStyleLabel.text
-        viewModel?.tripDescription = travelDescriptionTextView.text
     }
     
     func responseListeners() {

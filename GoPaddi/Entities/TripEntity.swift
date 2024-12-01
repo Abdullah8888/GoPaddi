@@ -8,7 +8,8 @@
 
 struct TripEntity: Codable {
     var tripName: String?
-    var tripStyle: String?
+    var tripTravelStyle: String?
+    var tripLocation: String?
     var tripDescription: String?
     var id: String?
 }

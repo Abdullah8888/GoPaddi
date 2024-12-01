@@ -16,8 +16,6 @@ final class CreateTripViewModel: ObservableObject {
     var selectedStartDate: String?
     var selectedEndDate: String?
     var tripName: String?
-    //var selectedTravelStyle: String?
-    //var selectedTravelStyle = PassthroughSubject<String?, Never>()
     var tripDescription: String?
     @Published var selectedTravelStyle: String?
     
@@ -25,14 +23,12 @@ final class CreateTripViewModel: ObservableObject {
         self.tripRepository = tripRepository
     }
     
-    func createTrip(tripName: String, tripStyle: String, tripDescription: String) async {
-        let result = try? await tripRepository.createTrip(tripName: tripName, tripStyle: tripStyle, tripDescription: tripDescription)
+    func createTrip(tripName: String, tripTravelStyle: String, tripLocation: String, tripDescription: String) async {
+        let result = try? await tripRepository.createTrip(tripName: tripName, tripTravelStyle: tripTravelStyle, tripLocation: tripLocation, tripDescription: tripDescription)
         switch result {
         case .success(let response):
-            print("createTrip >> \(response)")
             tripEntityResponse.send(response)
         case .failure(let error):
-            print("createTrip error >> \(error)")
             errResponse.send(error)
         case .none:
             errResponse.send(ErrorReponse(message: "An error occured"))

@@ -7,7 +7,7 @@
 
 import Foundation
 protocol TripRepositoryDelegate {
-    func createTrip(tripName: String, tripStyle: String, tripDescription: String) async throws -> Result<TripEntity?, ErrorReponse>
+    func createTrip(tripName: String, tripTravelStyle: String, tripLocation: String, tripDescription: String) async throws -> Result<TripEntity?, ErrorReponse>
     func fetchTrips() async throws -> Result<[TripEntity]?, ErrorReponse>
 }
 
@@ -22,14 +22,6 @@ final class TripRepository: TripRepositoryDelegate {
     
     func fetchTrips() async throws -> Result<[TripEntity]?, ErrorReponse> {
         do {
-//            let bodyPayload: [String: Any] = [
-//                "customerName": bankTransferPayload.customerName,
-//                "reference": bankTransferPayload.reference,
-//                "amount": bankTransferPayload.amount,
-//                "customerId": bankTransferPayload.customerId
-//            ]
-            
-            
             let response = try await networkService.execute(urlString: "\(Constant.baseUrl)/trip", method: .GET, type: [TripEntity].self, bodyPayload: [:])
             switch response {
             case .success(let tripEntities):
@@ -39,7 +31,6 @@ final class TripRepository: TripRepositoryDelegate {
             }
         }
         catch {
-            //throw error
             return .failure(ErrorReponse(message: error.localizedDescription))
         }
     }
@@ -48,15 +39,15 @@ final class TripRepository: TripRepositoryDelegate {
         
     }
     
-    func createTrip(tripName: String, tripStyle: String, tripDescription: String) async throws -> Result<TripEntity?, ErrorReponse> {
+    func createTrip(tripName: String, tripTravelStyle: String, tripLocation: String, tripDescription: String) async throws -> Result<TripEntity?, ErrorReponse> {
         
         do {
             let bodyPayload: [String: Any] = [
                 "tripName": tripName,
-                "tripStyle": tripStyle,
+                "tripTravelStyle": tripTravelStyle,
+                "tripLocation": tripLocation,
                 "tripDescription": tripDescription
             ]
-            
             
             let response = try await networkService.execute(urlString: "\(Constant.baseUrl)/trip", method: .POST, type: TripEntity.self, bodyPayload: bodyPayload)
             switch response {
@@ -67,7 +58,6 @@ final class TripRepository: TripRepositoryDelegate {
             }
         }
         catch {
-            //throw error
             return .failure(ErrorReponse(message: error.localizedDescription))
         }
     }
