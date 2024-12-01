@@ -6,16 +6,16 @@ trips, and book flights seamlessly.
 
 ## How to run the project
 
-Open the project via xcode after cloning the project. 
+Open the project via xcode after cloning it. 
 
-Note: If you are get "Unknow error". it means you will have to change the baseUrl
+Note: If you encounter an 'Unknown error,' it means you need to change the baseUrl.
 
 
-### Steps to change the base URL
-- Visit https://beeceptor.com/crud-api/  to generate a new base Url for api/trip, make sure it ends with api/trip
-- Go to the Constant.swift, then replace the old baseUrl with the new baseUrl
+### Steps to Change the Base URL
+- Visit https://beeceptor.com/crud-api/  to generate a new base Url for api/trip, make sure it ends with api/trip.
+- Open Constant.swift in the project and replace the old baseUrl with the new one.
 
-- Run the project again. (You shouldn't see any error and you should be able to create a plan which wull be automatilly reflect on the Trip landing page)
+- Run the project again. You should no longer see any errors, and you should be able to create a trip that will automatically reflect on the Trip landing page.
 
 
 ### Techniques and patterns used
@@ -23,7 +23,7 @@ Note: If you are get "Unknow error". it means you will have to change the baseUr
 - Coordinator pattern
 - DI
 
-### External Packages used and patterns used
+### External Packages used
 - Swinject
 - FSCalendar
 - Toast

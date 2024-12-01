@@ -39,7 +39,7 @@ final class TripHeaderView: BaseView {
         let img = UIImageView(image: UIImage(named: "bg_image_two"))
         img.contentMode = .scaleAspectFill
         img.backgroundColor = .yellow
-        //img.isHidden = true
+        img.isHidden = true
         return img
     }()
     
