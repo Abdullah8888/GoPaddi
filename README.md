@@ -3,10 +3,13 @@
 An intuitive flight booking app that lets you search, view all planned 
 trips, and book flights seamlessly.
 
-<p>
-    <img src="https://github.com/Abdullah8888/GoPaddi/blob/main/readme_files/pic_2.png" width="200px" height="auto" hspace="20"/>
-
-</p>
+<table>
+  <tr>
+    <td><img src="https://github.com/Abdullah8888/GoPaddi/blob/main/readme_files/pic_2.png" width="200px" height="auto" hspace="20"/>
+    <td><img src="https://github.com/Abdullah8888/GoPaddi/blob/main/readme_files/pic_5.png" width="200px" height="auto" hspace="20"/>
+    <td><img src="https://github.com/Abdullah8888/GoPaddi/blob/main/readme_files/pic_6.png" width="200px" height="auto" hspace="20"/>
+  </tr>
+</table>
 
 [Click here to download the recorder video](https://drive.google.com/file/d/1N-NB9MFCYWg_NqEnEbpO3yPQVScFMvnj/view?usp=sharing)
 
